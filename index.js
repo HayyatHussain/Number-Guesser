@@ -24,8 +24,14 @@ function firstClick () {
         // Disable the input field after submittion of the number from the user and change the innerHTML of the button
         userInput.disabled = true;
         button.innerHTML = "RETRY";
+
+    // Text alerting the user to not use a number > 10 or < 0
     } else {
         outputTxt.innerHTML = "Please enter a valid number (between 0-10)"
+        userInput.value = "Out of range!";
+        userInput.onfocus = () => {
+            userInput.value = "";
+        }
     }
 }
 
