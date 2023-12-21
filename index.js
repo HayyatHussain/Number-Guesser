@@ -11,17 +11,22 @@ inputTxt.focus();
 
 // Compare the user input with the random number on the first click
 function firstClick () {
-    click = true;
-    const num = Math.floor(Math.random() * 10);
-    if (userInput.value == num) {
-        outputTxt.innerHTML = "You got it correct!";
-    } else {
-        outputTxt.innerHTML = "Incorrect! The number was " + num;
-    }
+    // Prepare an edge-case scenario if user input is > 10 and < 0
+    if (userInput.value <= 10 && userInput.value >= 0) {
+        click = true;
+        const num = Math.round(Math.random() * 10);
+        if (userInput.value == num) {
+            outputTxt.innerHTML = "You got it correct!";
+        } else {
+            outputTxt.innerHTML = "Incorrect! The number was " + num;
+        }
 
-// Disable the input field after submittion of the number from the user and change the innerHTML of the button
-    userInput.disabled = true;
-    button.innerHTML = "RETRY";
+        // Disable the input field after submittion of the number from the user and change the innerHTML of the button
+        userInput.disabled = true;
+        button.innerHTML = "RETRY";
+    } else {
+        outputTxt.innerHTML = "Please enter a valid number (between 0-10)"
+    }
 }
 
 
