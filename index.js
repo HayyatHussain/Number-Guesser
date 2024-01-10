@@ -28,7 +28,7 @@ function firstClick () {
     // Text alerting the user to not use a number > 10 or < 0
     } else {
         outputTxt.innerHTML = "Please enter a valid number (between 0-10)"
-        userInput.value = "Out of range!";
+        userInput.value = "";
         userInput.onfocus = () => {
             userInput.value = "";
         }
