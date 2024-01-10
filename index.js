@@ -12,7 +12,7 @@ inputTxt.focus();
 // Compare the user input with the random number on the first click
 function firstClick () {
     // Prepare an edge-case scenario if user input is > 10 and < 0
-    if (userInput.value <= 10 && userInput.value >= 0) {
+    if (userInput.value <= 10 && userInput.value >= 0 && !["+", "-", " ", "."].includes(userInput.value)) {
         click = true;
         const num = Math.round(Math.random() * 10);
         if (userInput.value == num) {
